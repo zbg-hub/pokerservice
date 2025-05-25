@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+    const socket = new WebSocket("ws://127.0.0.1:8989/create_room?account=zbg");
+
+    socket.onopen = () => {
+        console.log('连接已建立');
+        socket.send('Hello Server!');
+    };
+
+    socket.onmessage = (event) => {
+        console.log('收到消息:', event.data);
+    };
+
+    socket.onclose = () => {
+        console.log('连接已关闭');
+    };
+</script>
+</body>
+</html>
